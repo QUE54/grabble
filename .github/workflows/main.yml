@@ -24,12 +24,12 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build debug APK
-        working-directory: android
-        run: gradle assembleDebug --no-daemon
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: R4-Rickroll-app-debug
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+      - - name: Build debug APK
+  working-directory: R4_Rickroll_Project/android
+  run: gradle assembleDebug --no-daemon
+  
+- name: Upload APK
+  uses: actions/upload-artifact@v4
+  with:
+    name: R4-Rickroll-app-debug
+    path: R4_Rickroll_Project/android/app/build/outputs/apk/debug/app-debug.apk
